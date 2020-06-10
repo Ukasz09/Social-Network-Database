@@ -1,7 +1,6 @@
-import csv
 from datetime import datetime, timedelta
+
 import app.utils as utils
-import app.posts as posts
 import shortuuid
 import random
 
@@ -11,7 +10,6 @@ MALE_NAME_CSV = "data/csv/male_names.csv"
 SURNAMES_CSV = "data/csv/surnames.csv"
 
 # others
-CSV_DELIMITER = ","
 MIN_ALLOWED_USER_AGE = 13
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -38,7 +36,7 @@ def gen_raw_users(qty):
             '_id': uid,
             'surname': utils.rand_elem(surnames),
             'name': name,
-            'birth_date': birth_date,
+            'birth_date': {'$date': birth_date+"T00:00:00Z"},
             'sex': sex
         }
         rows.append(user_dict)
