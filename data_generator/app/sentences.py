@@ -4,7 +4,7 @@ import csv
 import app.utils as utils
 
 browser = Browser()
-CSV_PATH = "csv/sentences.csv"
+CSV_PATH = "data/csv/sentences.csv"
 CSV_DELIMITER = ","
 
 
