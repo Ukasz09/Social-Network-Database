@@ -29,7 +29,7 @@ def gen_post(user_comments_dict, user_posts_dict, max_comments_qty=15):
     user_posts_dict[user_id].append(post_id)
     comments_qty = random.randint(0, max_comments_qty)
     return {
-        'post_id': post_id,
+        '_id': post_id,
         'user_id': user_id,
         'content': utils.rand_elem(sentences),
         'comments': gen_comments_list(user_comments_dict, post_id, comments_qty)

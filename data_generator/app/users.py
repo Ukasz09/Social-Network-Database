@@ -35,7 +35,7 @@ def gen_raw_users(qty):
         name = utils.rand_elem(female_names) if sex == "W" else utils.rand_elem(male_names)
         birth_date = utils.format_date(rand_user_birth_date())
         user_dict = {
-            'id': uid,
+            '_id': uid,
             'surname': utils.rand_elem(surnames),
             'name': name,
             'birth_date': birth_date,

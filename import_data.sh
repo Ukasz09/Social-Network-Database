@@ -1,0 +1,2 @@
+mongoimport --host localhost --db social_network --collection posts --drop --jsonArray --file data_generator/app/data/posts.json
+mongoimport --host localhost --db social_network --collection users --drop --jsonArray --file data_generator/app/data/users.json
