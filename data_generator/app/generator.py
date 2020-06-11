@@ -2,8 +2,8 @@ from app.users import gen_raw_users
 from app.posts import gen_posts_list
 import json
 
-USERS_QTY = 500
-POSTS_QTY = 2500
+USERS_QTY = 50
+POSTS_QTY = 250
 
 POSTS_PATH = "data/posts.json"
 USERS_PATH = "data/users.json"

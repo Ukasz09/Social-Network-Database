@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 import app.utils as utils
 import shortuuid
 import random
@@ -10,13 +12,22 @@ sentences = utils.csv_data_to_list(SENTENCES_CSV, data_columns=0)
 def gen_comment(users_comments_dict, post_id):
     user_id = utils.rand_elem(list(users_comments_dict.keys()))
     comment_id = shortuuid.uuid()
-    users_comments_dict[user_id].append({'post_id': post_id, 'comment_id': comment_id})
+    user_comments = users_comments_dict[user_id]
+    add_to_comments_list(user_comments, comment_id, post_id)
     comment = {
         'comment_id': comment_id,
         'user_id': user_id,
         'content': utils.rand_elem(sentences)
     }
     return comment
+
+
+def add_to_comments_list(comments_list, comment_id, post_id):
+    for com_dict in comments_list:
+        if com_dict['post_id'] == post_id:
+            com_dict['comments_id'].append(comment_id)
+            return
+    comments_list.append({'post_id': post_id, 'comments_id': [comment_id]})
 
 
 def gen_comments_list(user_comments_dict, post_id, qty):
