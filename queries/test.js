@@ -1,8 +1,8 @@
 db = db.getSiblingDB('social_network')
 
-test = db.users.find({ 'name': 'Ivory', 'surname': 'Thomas' })
+
+cursor = db.users.find({ surname: 'Mckenzie-II' })
 
 
-//printing results
-while (test.hasNext())
-    printjson(test.next());
+while (cursor.hasNext())
+    printjson(cursor.next());
