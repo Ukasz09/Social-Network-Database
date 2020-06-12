@@ -1,31 +1,28 @@
 db = db.getSiblingDB('social_network')
 
-var projection = {
-    "$project": {
-        name: 1, surname: 1, birth_day: 1, sex: 1,
-        "max_comments_qty_to_post": {
-            "$max": {
-                "$map": {
-                    "input": "$comments",
-                    "in": { "$size": "$$this.comments_id" }
-                }
-            }
+var max_comments_query = {
+    '$max': {
+        '$map': {
+            'input': '$comments',
+            'in': { '$size': '$$this.comments_id' }
         }
     }
 }
 
-max_comments_qty_to_post = db.users.aggregate([
+var projection = { '$project': { 'name': 1, 'surname': 1, 'birth_day': 1, 'sex': 1, 'max_qty': max_comments_query } }
+
+qty = db.users.aggregate([
     projection,
-    { $sort: { 'max_comments_qty_to_post': -1 } }
-]).next().max_comments_qty_to_post
+    { $sort: { 'max_qty': -1 } }
+]).next().max_qty
 
 
-//Persons with biggest amount of comments for one post (correct displayed even with more than one person with max qty of comments):
+//Users with biggest amount of comments for one post (correct displayed even with more than one person with max qty of comments):
 cursor = db.users.aggregate([
     projection,
-    { $match: { 'max_comments_qty_to_post': max_comments_qty_to_post } }
+    { $match: { 'max_qty': qty } }
 ])
 
-//printing results
+print('User with biggest amount of comments for one post: \n')
 while (cursor.hasNext())
     printjson(cursor.next());

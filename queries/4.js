@@ -12,6 +12,6 @@ cursor = db.users.aggregate([
     { $match: { 'number_of_posts': biggest_posts_qty } },
 ])
 
-//printing results
+print('Users with biggest posts qty: \n')
 while (cursor.hasNext())
     printjson(cursor.next());
