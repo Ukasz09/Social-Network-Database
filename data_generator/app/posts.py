@@ -4,7 +4,7 @@ import app.utils as utils
 import shortuuid
 import random
 
-SENTENCES_CSV = "data/csv/sentences.csv"
+SENTENCES_CSV = "app/data/csv/sentences.csv"
 
 sentences = utils.csv_data_to_list(SENTENCES_CSV, data_columns=0)
 

@@ -2,11 +2,11 @@ from app.users import gen_raw_users
 from app.posts import gen_posts_list
 import json
 
-USERS_QTY = 250
-POSTS_QTY = 250
+USERS_QTY = 500
+POSTS_QTY = 400
 
-POSTS_PATH = "data/posts.json"
-USERS_PATH = "data/users.json"
+POSTS_PATH = "app/data/posts.json"
+USERS_PATH = "app/data/users.json"
 
 
 def save_to_json(data, path):

@@ -5,9 +5,9 @@ import shortuuid
 import random
 
 # input
-FEMALE_NAME_CSV = "data/csv/female_names.csv"
-MALE_NAME_CSV = "data/csv/male_names.csv"
-SURNAMES_CSV = "data/csv/surnames.csv"
+FEMALE_NAME_CSV = "app/data/csv/female_names.csv"
+MALE_NAME_CSV = "app/data/csv/male_names.csv"
+SURNAMES_CSV = "app/data/csv/surnames.csv"
 
 # others
 MIN_ALLOWED_USER_AGE = 13
