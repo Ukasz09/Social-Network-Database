@@ -2,10 +2,10 @@
 Simplified social network database for educational purpose, with dummy data generator written in Python <br/>
 
 ## Used tools / libraries
-Database: MongoDB
-Database type: NoSql
-Queries wrapper: JavaScript
-Data generator: Python
+- **Database:** MongoDB
+- **Database type:** NoSql
+- **Queries wrapper:** JavaScript
+- **Data generator:** Python
 
 ## How to use it?
 - :arrow_forward: Run script which generate dummy data (you can skip this part and use already generated from `data_generator/app/data`) <br/>  
